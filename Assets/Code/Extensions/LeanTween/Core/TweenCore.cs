@@ -36,8 +36,8 @@ namespace UnityEngine.Animations
         }
         public void Play(bool value)
         {
-            IsEnabled = value;
             onPlayStatusChanged?.Invoke(value);
+            IsEnabled = value;
         }
 
         [ContextMenu("Swap Animation")] public void SwapTweenAnimation() => Play(!IsEnabled);

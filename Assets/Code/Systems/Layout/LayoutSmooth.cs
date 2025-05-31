@@ -5,7 +5,7 @@ namespace UnityEngine.UI.Effects
     public abstract class LayoutSmooth : HorizontalOrVerticalLayoutGroup
     {
         protected float2[] _from = new float2[0], _to = new float2[0];
-        protected float _speed = 5f;
+        protected float _speed = 10f;
 
         protected abstract bool _isVertical { get; }
         protected bool _isFirstTime = true;
