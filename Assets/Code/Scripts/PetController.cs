@@ -10,9 +10,9 @@ public class PetController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         RandomMov();
-        StartCoroutine(Start());
+        //StartCoroutine(Start());
     }
 
     void Awake()
@@ -25,19 +25,27 @@ public class PetController : MonoBehaviour
     void Update()
     {
 
+        Debug.Log(agent.velocity.magnitude);
+        if(agent.velocity.magnitude < 0.1)
+        {
+            RandomMov();
+        }
     }
 
     void RandomMov()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * 100;
+        Vector3 randomDirection = Random.insideUnitSphere * 20;
         randomDirection += transform.position;
 
         NavMeshHit hit;
 
-        if (NavMesh.SamplePosition(randomDirection, out hit, 100, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randomDirection, out hit, 20, NavMesh.AllAreas))
         {
             agent.SetDestination(hit.position);
 
         }
+
+        float dist = Vector2.Distance(agent.transform.position, hit.position);
+
     }
 }
