@@ -98,9 +98,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1164593057137702852, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7626783170819675592}
-    - targetCorrespondingSourceObject: {fileID: 1164593057137702852, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4084625118950313845}
     - targetCorrespondingSourceObject: {fileID: 1164593057137702852, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
       insertIndex: -1
@@ -110,6 +107,9 @@ PrefabInstance:
       addedObject: {fileID: 3310645030912812209}
     - targetCorrespondingSourceObject: {fileID: 1164593057137702852, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 4235002234075400295}
+    - targetCorrespondingSourceObject: {fileID: 1164593057137702852, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 3489302723833778487}
   m_SourcePrefab: {fileID: 100100000, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
 --- !u!1 &3238669995939207738 stripped
@@ -117,46 +117,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1164593057137702852, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
   m_PrefabInstance: {fileID: 4385210832397020670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7626783170819675592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3238669995939207738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3eb77ddd2304941b66f04ece7cd8f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _castObjects: 1
-  _onSuccess:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3310645030912812209}
-        m_TargetAssemblyTypeName: UnityEngine.Animations.TweenAlpha, Assembly-CSharp
-        m_MethodName: FadeOut
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3489302723833778487}
-        m_TargetAssemblyTypeName: Events.Interact.Delay, Assembly-CSharp
-        m_MethodName: PlatDefault
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!225 &4084625118950313845
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -225,6 +185,46 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _modifyInteraction: 1
+--- !u!114 &4235002234075400295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238669995939207738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998dcc734c38afa4d81560bd3f6747f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _castObjects: 1
+  _onSuccess:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3310645030912812209}
+        m_TargetAssemblyTypeName: UnityEngine.Animations.TweenAlpha, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3489302723833778487}
+        m_TargetAssemblyTypeName: Events.Interact.Delay, Assembly-CSharp
+        m_MethodName: PlatDefault
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3489302723833778487
 MonoBehaviour:
   m_ObjectHideFlags: 0
