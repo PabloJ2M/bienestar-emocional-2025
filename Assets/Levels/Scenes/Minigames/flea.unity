@@ -1078,7 +1078,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 5
+          m_FloatArgument: 20
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1619,6 +1619,7 @@ GameObject:
   - component: {fileID: 1800855772}
   - component: {fileID: 1800855771}
   - component: {fileID: 1800855775}
+  - component: {fileID: 1800855776}
   m_Layer: 5
   m_Name: canvas
   m_TagString: Untagged
@@ -1726,6 +1727,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 931803983}
+--- !u!114 &1800855776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800855770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20466c6108843764dbab4cbb98eeee73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 1800855774}
+  _fade: {fileID: 1663186036650227792, guid: 12a10f0f37e511247800f2f71cf9775f, type: 3}
+  _backupScene: 0
+  _onSceneChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2037442813
 GameObject:
   m_ObjectHideFlags: 0
