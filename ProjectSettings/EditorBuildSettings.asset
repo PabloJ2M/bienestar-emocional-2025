@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Levels/Scenes/Menu Start.unity
+    guid: 79df399730e2cf14389ad0aba64608be
+  - enabled: 1
     path: Assets/Levels/Scenes/Room 1.unity
     guid: b1e41025dbcdc804383a05c5447d8521
   - enabled: 1
@@ -20,6 +23,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Scenes/Minigames/feed.unity
     guid: d238da2e825fea147a3dfe58d556f13c
+  - enabled: 1
+    path: Assets/Levels/Scenes/Minigames/shower.unity
+    guid: acd609033e7d5444b8634a945e917e6b
+  - enabled: 1
+    path: Assets/Levels/Scenes/Minigames/flea.unity
+    guid: 0fe5d78a0d9e37b40a380c7aa5f06619
+  - enabled: 1
+    path: Assets/Levels/Scenes/Minigames/dust.unity
+    guid: 84ab0f17169a9c549b9a0bcd0db2bb16
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
