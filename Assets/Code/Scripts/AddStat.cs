@@ -67,11 +67,11 @@ public class AddStat : MonoBehaviour
 
         if(_value >= startValue + maxValueAdded)
         {
-            for (int i = 3; i >= 0; i--)
+            for (int i = 4; i >= 0; i--)
             {
                 if (felicidad >= sceneLimits[i] && alimento >= sceneLimits[i] && limpieza >= sceneLimits[i] && salud >= sceneLimits[i])
                 {
-
+                    Debug.Log("CambioEscena");
                     StartCoroutine(Finish(scenes[i]));
                 }
 
