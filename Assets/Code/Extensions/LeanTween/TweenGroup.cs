@@ -6,12 +6,20 @@ namespace UnityEngine.Animations
 {
     public class TweenGroup : MonoBehaviour
     {
-        [SerializeField] private float _delay;
+        [SerializeField] private bool _playOnAwake;
+        [SerializeField, Range(0, 1)] private float _delay;
 
         [SerializeField] private bool _negateCallback;
         [SerializeField] private UnityEvent<bool> _onValueChanged;
 
         private List<ITween> tweens = new();
+
+        private IEnumerator Start()
+        {
+            if (!_playOnAwake) yield break;
+            yield return new WaitForEndOfFrame();
+            EnableTween();
+        }
 
         public void AddListener(ITween tween) => tweens.Add(tween);
         public void RemoveListener(ITween tween) => tweens.Remove(tween);
