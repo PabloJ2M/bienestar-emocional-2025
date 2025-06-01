@@ -9,7 +9,7 @@ namespace UnityEngine.SceneManagement
         [SerializeField] private RectTransform _transform;
         [SerializeField] private FadeScene _fade;
         [SerializeField] private bool _backupScene;
-        [SerializeField] private UnityEvent _onSceneChange;
+        [SerializeField] private UnityEvent<bool> _onSceneChange;
 
         public List<string> scenes { get; protected set; }
         private static string _lastScene;
@@ -24,18 +24,19 @@ namespace UnityEngine.SceneManagement
         {
             if (scenes.Contains(value)) yield break;
             yield return SceneManager.LoadSceneAsync(value, LoadSceneMode.Additive);
+            _onSceneChange.Invoke(false);
             scenes.Add(value);
         }
         public void RemoveScene(string value)
         {
             if (!scenes.Contains(value)) return;
             SceneManager.UnloadSceneAsync(value, UnloadSceneOptions.None);
+            _onSceneChange.Invoke(true);
             scenes.Remove(value);
         }
         
         public void OnCutScene(string value)
         {
-            _onSceneChange.Invoke();
             _lastScene = _backupScene ? SceneManager.GetActiveScene().path : null;
 
             SceneManager.LoadSceneAsync(value, LoadSceneMode.Single);
