@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 240, y: -236}
+  m_AnchoredPosition: {x: 240, y: 46}
   m_SizeDelta: {x: 320, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &161889633
@@ -541,7 +541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -13.111572, y: 312}
+  m_AnchoredPosition: {x: -13.111572, y: 490}
   m_SizeDelta: {x: -297.1646, y: 327.4216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871790601
@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 1007178348}
   - component: {fileID: 1007178347}
   - component: {fileID: 1007178351}
+  - component: {fileID: 1007178352}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -860,6 +861,24 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   playOnAwake: 1
+--- !u!114 &1007178352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007178346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20466c6108843764dbab4cbb98eeee73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 1007178350}
+  _fade: {fileID: 1663186036650227792, guid: 12a10f0f37e511247800f2f71cf9775f, type: 3}
+  _backupScene: 0
+  _onSceneChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1424347601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1148,7 @@ GameObject:
   - component: {fileID: 1484166247}
   - component: {fileID: 1484166251}
   - component: {fileID: 1484166250}
+  - component: {fileID: 1484166252}
   m_Layer: 5
   m_Name: Gato
   m_TagString: Untagged
@@ -1152,7 +1172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -240, y: -236}
+  m_AnchoredPosition: {x: -240, y: 46}
   m_SizeDelta: {x: 320, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1484166247
@@ -1198,7 +1218,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1484166248}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1484166252}
+        m_TargetAssemblyTypeName: UnityEngine.SceneManagement.SceneLoader, Assembly-CSharp
+        m_MethodName: SwipeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1484166248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1293,6 +1325,19 @@ MonoBehaviour:
   _playOnAwake: 1
   _isLoop: 1
   _ignoreTimeScale: 0
+--- !u!114 &1484166252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484166245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af57dfae62910d4892664f149836443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenePath: Assets/Levels/Scenes/Room 1.unity
 --- !u!1 &1919443683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2079739115
 RectTransform:
   m_ObjectHideFlags: 0
