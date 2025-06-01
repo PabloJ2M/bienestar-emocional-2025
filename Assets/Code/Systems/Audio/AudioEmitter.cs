@@ -15,7 +15,7 @@ namespace UnityEngine.Audio
         }
         private void PlaySound(AudioClip clip)
         {
-            _overrideSource.pitch = Random.Range(0.95f, 1.05f);
+            _overrideSource.pitch = Random.Range(0.75f, 1.25f);
             _overrideSource.PlayOneShot(clip);
         }
     }

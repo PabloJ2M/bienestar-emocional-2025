@@ -22,6 +22,7 @@ public class PetController : MonoBehaviour
     float normalHeight;
     int lastPoint;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
