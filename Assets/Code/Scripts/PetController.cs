@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,16 +10,34 @@ public class PetController : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     float _lastDestinationTime;
     [SerializeField] GameObject[] Points;
-    [SerializeField] GameObject petSprite;
+    [SerializeField] SpriteRenderer petSprite;
+    [SerializeField] List<Mascota> mascotas;
 
+    [SerializeField] string mascota;
     [SerializeField] float tiempoQuieto = 2f;
+    [SerializeField] Animator anim;
+    AnimatorController animatorController;
     bool moving = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        for (int i = 0; i < mascotas.Count; i++) 
+        {
+            if (mascotas[i].name == mascota)
+            {
+                petSprite.sprite = mascotas[i].sprite;
+                animatorController = mascotas[i].animator;
+                petSprite.transform.position += Vector3.up * mascotas[i].yOffset;
+            }
+        }
+
+        anim = GetComponentInChildren<Animator>();
+
+        anim.runtimeAnimatorController = animatorController;
+        
         Points = GameObject.FindGameObjectsWithTag("Point");
-        //StartCoroutine(RandomMov());
+
     }
 
     void Awake()
@@ -76,4 +95,14 @@ public class PetController : MonoBehaviour
         //StartCoroutine(RandomMov());
 
     }
+}
+
+[System.Serializable]
+public class Mascota
+{
+    public Sprite sprite;
+    public AnimatorController animator;
+    public string name;
+    public float yOffset;
+
 }

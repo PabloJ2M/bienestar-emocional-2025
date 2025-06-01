@@ -1362,7 +1362,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 825379105}
   Points: []
-  petSprite: {fileID: 1485512559}
+  petSprite: {fileID: 1485512561}
+  mascotas:
+  - sprite: {fileID: 1652947253, guid: e9bf4fb1f3cd74a4b8960f281b7c85f8, type: 3}
+    animator: {fileID: 9100000, guid: 03fecaaa49d7b404183d95553c19cbbd, type: 2}
+    name: Gato
+    yOffset: 0
+  - sprite: {fileID: 1652947253, guid: e9bf4fb1f3cd74a4b8960f281b7c85f8, type: 3}
+    animator: {fileID: 9100000, guid: e9802ad063effa5469db1404bf18b393, type: 2}
+    name: Perro
+    yOffset: 0.3
+  mascota: Perro
+  tiempoQuieto: 2
+  anim: {fileID: 0}
 --- !u!114 &825379107
 MonoBehaviour:
   m_ObjectHideFlags: 0
