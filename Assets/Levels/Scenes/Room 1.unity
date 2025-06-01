@@ -4118,7 +4118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8995751615039248665, guid: 0d962bc1b11aa8b468fa0df9137e0eda, type: 3}
       propertyPath: _onSceneChange.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8995751615039248665, guid: 0d962bc1b11aa8b468fa0df9137e0eda, type: 3}
       propertyPath: _onSceneChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4141,6 +4141,10 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8995751615039248665, guid: 0d962bc1b11aa8b468fa0df9137e0eda, type: 3}
+      propertyPath: _onSceneChange.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995751615039248665, guid: 0d962bc1b11aa8b468fa0df9137e0eda, type: 3}
       propertyPath: _onSceneChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
@@ -4150,6 +4154,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8995751615039248665, guid: 0d962bc1b11aa8b468fa0df9137e0eda, type: 3}
       propertyPath: _onSceneChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995751615039248665, guid: 0d962bc1b11aa8b468fa0df9137e0eda, type: 3}
+      propertyPath: _onSceneChange.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

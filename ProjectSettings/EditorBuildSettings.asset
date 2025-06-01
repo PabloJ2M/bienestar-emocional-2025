@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Scenes/Minigames/dust.unity
     guid: 84ab0f17169a9c549b9a0bcd0db2bb16
+  - enabled: 1
+    path: Assets/Levels/Scenes/Minigames/hearts.unity
+    guid: 28349af2496bf12438a997d0c730cd37
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
