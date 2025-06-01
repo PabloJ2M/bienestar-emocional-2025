@@ -21,7 +21,7 @@ namespace UnityEngine.InputSystem
         private void Reset() => _container = transform as RectTransform;
         private void Awake() => _parent = transform.parent as RectTransform;
 
-        public void DragItem(DnDElement type) { _element = type; type.SetInFront(_parent); }
+        public void DragItem(DnDElement type) { if (_element) return; _element = type; type.SetInFront(_parent); }
         public void DropItem() => StartCoroutine(DropDelay(_area.IsOverArea()));
 
         private IEnumerator DropDelay(bool isCompleted)
