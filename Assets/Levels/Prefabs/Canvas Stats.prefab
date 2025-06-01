@@ -1154,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1201955924156857824, guid: a037a31683a2c134594e15402d3792d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwipeScene
+      value: AddScene
       objectReference: {fileID: 0}
     - target: {fileID: 1201955924156857824, guid: a037a31683a2c134594e15402d3792d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1456,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 264326174965233413, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwipeScene
+      value: AddScene
       objectReference: {fileID: 0}
     - target: {fileID: 264326174965233413, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
