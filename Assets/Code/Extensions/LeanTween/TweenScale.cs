@@ -10,7 +10,7 @@ namespace UnityEngine.Animations
             _to *= _scaleFactor;
         }
 
-        protected override void OnComplete() { base.OnComplete(); _transform.localScale = _from; }
+        protected override void OnComplete() { base.OnComplete(); _transform.localScale = _to; }
         protected override void OnPerformePlay(bool value)
         {
             CancelTween();

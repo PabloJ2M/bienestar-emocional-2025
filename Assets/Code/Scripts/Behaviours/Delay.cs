@@ -10,6 +10,7 @@ namespace Events.Interact
         [SerializeField] private UnityEvent _onStart, _onComplete;
         private WaitForEndOfFrame _waitForEndOfFrame = new();
         private bool _isPlaying = false;
+        [SerializeField] private bool playOnAwake = false;
         private float _current = 0;
 
         public bool IsPlaying => _isPlaying;
@@ -34,6 +35,14 @@ namespace Events.Interact
 
             _isPlaying = false;
             _onComplete.Invoke();
+        }
+
+        public void Start()
+        {
+            if (playOnAwake)
+            {
+                PlatDefault();
+            }
         }
     }
 }
