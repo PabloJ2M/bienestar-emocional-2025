@@ -18,10 +18,15 @@ public class PetController : MonoBehaviour
     [SerializeField] Animator anim;
     RuntimeAnimatorController animatorController;
     bool moving = false;
+    bool jumping = false;
+    float normalHeight;
+    int lastPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        mascota = PlayerPrefs.GetString("Mascota", "Gato");
+        
         for (int i = 0; i < mascotas.Count; i++) 
         {
             if (mascotas[i].name == mascota)
@@ -37,6 +42,7 @@ public class PetController : MonoBehaviour
         anim.runtimeAnimatorController = animatorController;
         
         Points = GameObject.FindGameObjectsWithTag("Point");
+        normalHeight = transform.position.y;
 
     }
 
@@ -50,23 +56,45 @@ public class PetController : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(agent.velocity.x);
+        //Debug.Log(agent.velocity.x);
 
-        if(agent.velocity.x > 0 )
-        {
-            petSprite.transform.localScale = new Vector3(-1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
-        }
-        if(agent.velocity.x < 0)
-        {
-            petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
-        }
+        //if(agent.velocity.x > 0 )
+        //{
+        //    petSprite.transform.localScale = new Vector3(-1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+        //}
+        //if(agent.velocity.x < 0)
+        //{
+        //    petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+        //}
 
         if (agent.remainingDistance < 0.15 && moving == false)
         {
             StartCoroutine(RandomMov());
         }
 
-        Debug.Log(agent.remainingDistance);
+        //Debug.Log(agent.velocity.y);
+
+        //if(transform.position.y > normalHeight + 0.2 && jumping == false)
+        //{
+        //    anim.SetTrigger("Jump");
+        //    jumping = true;
+        //}
+
+        //if( agent.velocity.y > 0 && jumping == false)
+        //{
+        //    anim.SetTrigger("Jump");
+        //    jumping = true;
+        //}
+    }
+    public void JumpAnimation()
+    {
+        if (jumping == false)
+        {
+            FindFirstObjectByType<Animator>().SetTrigger("Jump");
+            jumping = true;
+        }
+        
+
     }
 
     IEnumerator RandomMov()
@@ -74,15 +102,38 @@ public class PetController : MonoBehaviour
         anim.SetBool("Run", false);
         
         moving = true;
+
+        jumping = false;
         
         yield return new WaitForSeconds(tiempoQuieto);
 
         anim.SetBool("Run", true);
 
-        int number = Random.Range(0,Points.Length);
+        int number = 0;
+
+        do
+        {
+            number = Random.Range(0, Points.Length);
+
+        } while (number == lastPoint);
+
+
 
         Vector3 randomDirection = Points[number].transform.position;
 
+        if(transform.position.x - randomDirection.x < 0)
+        {
+            petSprite.transform.localScale = new Vector3(-1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+
+        }
+        if (transform.position.x - randomDirection.x > 0)
+        {
+            petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+
+        }
+
+
+        lastPoint = number;
         NavMeshHit hit;
 
         if (NavMesh.SamplePosition(randomDirection, out hit, 20, NavMesh.AllAreas))

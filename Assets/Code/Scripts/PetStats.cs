@@ -21,13 +21,24 @@ public class PetStats : MonoBehaviour
                 stats[i].fillImage.fillAmount = (float) stats[i].value / 100;
                 PlayerPrefs.SetFloat(stat, stats[i].value);
 
+                if(stats[i].value > 100)
+                {
+                    stats[i].value = 100;
+                    PlayerPrefs.SetFloat(stat, 100);
+                }
+                if (stats[i].value <0)
+                {
+                    stats[i].value = 0;
+                    PlayerPrefs.SetFloat(stat, 0);
+                }
+
             }
         }
     }
 
-    public void Boton(string stat)
+    public void FelicidadBoton(float value)
     {
-        ChangeStat(stat, 50);
+        ChangeStat("Felicidad", value);
     }
 
     private void Start()
