@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Perrito Idle
+  m_Name: Perrito Caminar
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0

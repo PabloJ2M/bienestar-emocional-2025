@@ -16,7 +16,7 @@ public class PetController : MonoBehaviour
     [SerializeField] string mascota;
     [SerializeField] float tiempoQuieto = 2f;
     [SerializeField] Animator anim;
-    AnimatorController animatorController;
+    RuntimeAnimatorController animatorController;
     bool moving = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,7 +61,7 @@ public class PetController : MonoBehaviour
             petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
         }
 
-        if (agent.remainingDistance < 0.1 && moving == false)
+        if (agent.remainingDistance < 0.15 && moving == false)
         {
             StartCoroutine(RandomMov());
         }
@@ -71,10 +71,14 @@ public class PetController : MonoBehaviour
 
     IEnumerator RandomMov()
     {
+        anim.SetBool("Run", false);
+        
         moving = true;
         
         yield return new WaitForSeconds(tiempoQuieto);
-        
+
+        anim.SetBool("Run", true);
+
         int number = Random.Range(0,Points.Length);
 
         Vector3 randomDirection = Points[number].transform.position;
@@ -101,7 +105,7 @@ public class PetController : MonoBehaviour
 public class Mascota
 {
     public Sprite sprite;
-    public AnimatorController animator;
+    public RuntimeAnimatorController animator;
     public string name;
     public float yOffset;
 
