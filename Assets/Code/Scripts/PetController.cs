@@ -56,23 +56,23 @@ public class PetController : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(agent.velocity.x);
+        //Debug.Log(agent.velocity.x);
 
-        if(agent.velocity.x > 0 )
-        {
-            petSprite.transform.localScale = new Vector3(-1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
-        }
-        if(agent.velocity.x < 0)
-        {
-            petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
-        }
+        //if(agent.velocity.x > 0 )
+        //{
+        //    petSprite.transform.localScale = new Vector3(-1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+        //}
+        //if(agent.velocity.x < 0)
+        //{
+        //    petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+        //}
 
         if (agent.remainingDistance < 0.15 && moving == false)
         {
             StartCoroutine(RandomMov());
         }
 
-        Debug.Log(agent.velocity.y);
+        //Debug.Log(agent.velocity.y);
 
         //if(transform.position.y > normalHeight + 0.2 && jumping == false)
         //{
@@ -85,6 +85,16 @@ public class PetController : MonoBehaviour
         //    anim.SetTrigger("Jump");
         //    jumping = true;
         //}
+    }
+    public void JumpAnimation()
+    {
+        if (jumping == false)
+        {
+            FindFirstObjectByType<Animator>().SetTrigger("Jump");
+            jumping = true;
+        }
+        
+
     }
 
     IEnumerator RandomMov()
@@ -110,6 +120,19 @@ public class PetController : MonoBehaviour
 
 
         Vector3 randomDirection = Points[number].transform.position;
+
+        if(transform.position.x - randomDirection.x < 0)
+        {
+            petSprite.transform.localScale = new Vector3(-1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+
+        }
+        if (transform.position.x - randomDirection.x > 0)
+        {
+            petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+
+        }
+
+
         lastPoint = number;
         NavMeshHit hit;
 
