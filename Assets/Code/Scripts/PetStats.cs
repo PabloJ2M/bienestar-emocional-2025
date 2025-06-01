@@ -18,7 +18,7 @@ public class PetStats : MonoBehaviour
             if (stats[i].name == stat)
             {
                 stats[i].value += amount;
-                stats[i].fillImage.fillAmount = (float) stats[i].value / 100;
+                stats[i].fillImage.fillAmount = 1 - (float) (stats[i].value / 100f);
                 PlayerPrefs.SetFloat(stat, stats[i].value);
 
                 if(stats[i].value > 100)
