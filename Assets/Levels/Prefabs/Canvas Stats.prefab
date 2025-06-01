@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af57dfae62910d4892664f149836443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scenePath: 
+  _scenePath: Assets/Levels/Scenes/Minigames/hearts.unity
 --- !u!224 &7210409557543402715 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5827869526356268116, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
