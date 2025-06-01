@@ -21,6 +21,7 @@ namespace UnityEngine.SceneManagement
         protected override void OnComplete()
         {
             base.OnComplete();
+            onComplete?.Invoke(true);
             if (!_tweenCore.IsEnabled) Destroy(gameObject);
         }
     }
