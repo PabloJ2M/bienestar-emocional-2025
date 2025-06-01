@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: food_display
       objectReference: {fileID: 0}
+    - target: {fileID: 2043120851219528302, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d64aaadb6df7d924d9d822473a567ae2, type: 3}
+    - target: {fileID: 2043120851219528302, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3265266101219154837, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -91,6 +99,22 @@ PrefabInstance:
     - target: {fileID: 3265266101219154837, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993803892526803179, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993803892526803179, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993803892526803179, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993803892526803179, guid: 7e1229d8a7cdd964289c4ecdcfab754d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -25,6 +25,9 @@ namespace UnityEngine.Animations
 
             //saved tween ID
             _tweenID = tween.uniqueId;
+
+            LeanTween.value(_self, 0f, 1f, _tweenCore.Time).setOnUpdate(OnUpdate);
         }
+        protected virtual void OnUpdate(float value) { }
     }
 }

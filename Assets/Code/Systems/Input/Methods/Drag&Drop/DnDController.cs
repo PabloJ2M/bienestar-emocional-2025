@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.Events;
 
 namespace UnityEngine.InputSystem
 {
@@ -9,6 +10,7 @@ namespace UnityEngine.InputSystem
         [SerializeField] private OverlayArea _area;
 
         [SerializeField, Range(0, 1)] private float _delayEffect;
+        [SerializeField] private UnityEvent<DnDElement> _onDropItem;
 
         private WaitForSeconds _delayTime;
         private RectTransform _parent;
@@ -24,7 +26,7 @@ namespace UnityEngine.InputSystem
 
         private IEnumerator DropDelay(bool isCompleted)
         {
-            if (isCompleted) { _element.CompleteTask(); yield return _delayTime; }
+            if (isCompleted) { _onDropItem.Invoke(_element); _element.CompleteTask(); yield return _delayTime; }
             _element.ResetSibling(_container);
             _element = null;
         }

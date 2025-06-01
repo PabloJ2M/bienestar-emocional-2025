@@ -79,23 +79,18 @@ Shader "UI/Gradient"
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
                 o.color = v.color;
-
-                // Normalized local position (0,0) bottom-left — (1,1) top-right
                 o.localPos = v.texcoord;
                 return o;
             }
 
             fixed4 frag(v2f i) : SV_Target
             {
-                // Bilinear interpolation between the 4 corner colors
                 float2 uv = i.localPos;
                 fixed4 colorTop = lerp(_ColorTopLeft, _ColorTopRight, uv.x);
                 fixed4 colorBottom = lerp(_ColorBottomLeft, _ColorBottomRight, uv.x);
                 fixed4 finalColor = lerp(colorBottom, colorTop, uv.y);
 
                 fixed4 texColor = tex2D(_MainTex, i.texcoord);
-
-                // Combine texture color with gradient and vertex color
                 return texColor * finalColor * i.color;
             }
             ENDCG

@@ -305,6 +305,21 @@ MonoBehaviour:
   _screen: {fileID: 1800855775}
   _area: {fileID: 322601199}
   _delayEffect: 1
+  _onDropItem:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 322601201}
+        m_TargetAssemblyTypeName: AnimatorManager, Assembly-CSharp
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Eat
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &322601195
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +331,8 @@ GameObject:
   - component: {fileID: 322601196}
   - component: {fileID: 322601198}
   - component: {fileID: 322601197}
+  - component: {fileID: 322601200}
+  - component: {fileID: 322601201}
   - component: {fileID: 322601199}
   m_Layer: 5
   m_Name: drop area
@@ -340,8 +357,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 304, y: 538}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322601197
 MonoBehaviour:
@@ -356,16 +373,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.24705882}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 48c2afd0019b92e46b370872247f507d, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -391,6 +408,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38bd78fa20748a54ea1d5f805fa363a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &322601200
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322601195}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49d4de78a15e39649bfb56b97aca0979, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &322601201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322601195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe5c7e00fa314747b584c993edd2d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &452226098
@@ -481,6 +532,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2342427688550668176, guid: 1177369e9bad5654aa6140bb13b1166b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0c6e37c4a458ae4494c831a6c40d5bf, type: 3}
     - target: {fileID: 3238669995939207738, guid: 1177369e9bad5654aa6140bb13b1166b, type: 3}
       propertyPath: m_Name
       value: food_display
@@ -490,6 +545,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1177369e9bad5654aa6140bb13b1166b, type: 3}
+--- !u!1 &554141259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554141260}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &554141260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554141259}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.083937295, y: -0.64, z: 10.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &931803981
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +890,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2342427688550668176, guid: 1177369e9bad5654aa6140bb13b1166b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d3235d765598858448d2566e7eca9fbe, type: 3}
     - target: {fileID: 3238669995939207738, guid: 1177369e9bad5654aa6140bb13b1166b, type: 3}
       propertyPath: m_Name
       value: food_display
@@ -1018,6 +1108,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2342427688550668176, guid: 1177369e9bad5654aa6140bb13b1166b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e96e8dbed479c9d4aa363a5c62cc6c55, type: 3}
     - target: {fileID: 3238669995939207738, guid: 1177369e9bad5654aa6140bb13b1166b, type: 3}
       propertyPath: m_Name
       value: food_display
@@ -1034,3 +1128,4 @@ SceneRoots:
   - {fileID: 1385745362}
   - {fileID: 931803984}
   - {fileID: 1800855774}
+  - {fileID: 554141260}
