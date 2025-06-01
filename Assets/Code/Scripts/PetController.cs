@@ -18,6 +18,8 @@ public class PetController : MonoBehaviour
     [SerializeField] Animator anim;
     RuntimeAnimatorController animatorController;
     bool moving = false;
+    bool jumping = false;
+    float normalHeight;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -37,6 +39,7 @@ public class PetController : MonoBehaviour
         anim.runtimeAnimatorController = animatorController;
         
         Points = GameObject.FindGameObjectsWithTag("Point");
+        normalHeight = transform.position.y;
 
     }
 
@@ -66,7 +69,19 @@ public class PetController : MonoBehaviour
             StartCoroutine(RandomMov());
         }
 
-        Debug.Log(agent.remainingDistance);
+        Debug.Log(agent.velocity.y);
+
+        if(transform.position.y > normalHeight + 1 && jumping == false)
+        {
+            anim.SetTrigger("Jump");
+            jumping = true;
+        }
+
+        //if( agent.velocity.y > 0 && jumping == false)
+        //{
+        //    anim.SetTrigger("Jump");
+        //    jumping = true;
+        //}
     }
 
     IEnumerator RandomMov()
@@ -74,6 +89,8 @@ public class PetController : MonoBehaviour
         anim.SetBool("Run", false);
         
         moving = true;
+
+        jumping = false;
         
         yield return new WaitForSeconds(tiempoQuieto);
 
