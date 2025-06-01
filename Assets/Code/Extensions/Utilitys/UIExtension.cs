@@ -48,5 +48,13 @@ namespace UnityEngine.UI
             color.a = alpha;
             image.color = color;
         }
+        public static void SetValue(this Slider slider, float value)
+        {
+            slider.value = value;
+        }
+        public static void AddValue(this Slider slider, float value)
+        {
+            slider.value += value;
+        }
     }
 }

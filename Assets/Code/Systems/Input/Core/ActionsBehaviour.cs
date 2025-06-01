@@ -17,7 +17,7 @@ namespace UnityEngine.InputSystem
     }
     public abstract class InteractionBehaviour : ActionsBehaviour
     {
-        [SerializeField] protected UIInteraction _castObjects;
+        [SerializeField] protected UIInteraction _castObjects = UIInteraction.SelfOnly;
         protected EventSystem _system;
 
         private LayerMask _transparent;
