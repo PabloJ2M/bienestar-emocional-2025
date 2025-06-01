@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5613fb0e3a27d1e42a9bdcdb0ba52751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: Felicidad
+  stat: Alimento
   maxValueAdded: 20
   scenes:
   - {fileID: 457210641}
@@ -602,6 +602,7 @@ MonoBehaviour:
   - 40
   - 60
   - 80
+  endDelay: 1
 --- !u!4 &457210637
 Transform:
   m_ObjectHideFlags: 0
