@@ -1372,7 +1372,7 @@ MonoBehaviour:
     animator: {fileID: 22100000, guid: 19ac37396c9acc54ea1196dcc6634a95, type: 2}
     name: Perro
     yOffset: 0.3
-  mascota: Gato
+  mascota: Perro
   tiempoQuieto: 2
   anim: {fileID: 0}
 --- !u!114 &825379107

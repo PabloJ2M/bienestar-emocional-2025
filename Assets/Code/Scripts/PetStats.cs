@@ -27,7 +27,7 @@ public class PetStats : MonoBehaviour
 
     public void Boton(string stat)
     {
-        ChangeStat(stat, 50);
+        ChangeStat(stat, -10);
     }
 
     private void Start()
