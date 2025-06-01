@@ -373,6 +373,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2340324384738612255}
     m_Modifications:
+    - target: {fileID: 365050580315932503, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 365050580315932503, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 365050580315932503, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1023805422528232830}
+    - target: {fileID: 365050580315932503, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 365050580315932503, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 365050580315932503, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.SceneManagement.SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 365050580315932503, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1893945833623272226, guid: 1d39401d4b6e39e4db0036abda495c36, type: 3}
       propertyPath: m_Name
       value: option button right
