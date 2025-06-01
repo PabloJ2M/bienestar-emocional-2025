@@ -46,7 +46,7 @@ public class PetStats : MonoBehaviour
 
         for (int i = 0; i < stats.Count; i++)
         {
-            stats[i].value = PlayerPrefs.GetFloat(stats[i].name, 100);
+            stats[i].value = PlayerPrefs.GetFloat(stats[i].name, 20);
             stats[i].fillImage.fillAmount = (float)stats[i].value / 100;
 
         }
