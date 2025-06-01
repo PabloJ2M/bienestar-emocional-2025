@@ -20,10 +20,13 @@ public class PetController : MonoBehaviour
     bool moving = false;
     bool jumping = false;
     float normalHeight;
+    int lastPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        mascota = PlayerPrefs.GetString("Mascota", "Gato");
+        
         for (int i = 0; i < mascotas.Count; i++) 
         {
             if (mascotas[i].name == mascota)
@@ -71,11 +74,11 @@ public class PetController : MonoBehaviour
 
         Debug.Log(agent.velocity.y);
 
-        if(transform.position.y > normalHeight + 1 && jumping == false)
-        {
-            anim.SetTrigger("Jump");
-            jumping = true;
-        }
+        //if(transform.position.y > normalHeight + 0.2 && jumping == false)
+        //{
+        //    anim.SetTrigger("Jump");
+        //    jumping = true;
+        //}
 
         //if( agent.velocity.y > 0 && jumping == false)
         //{
@@ -96,10 +99,18 @@ public class PetController : MonoBehaviour
 
         anim.SetBool("Run", true);
 
-        int number = Random.Range(0,Points.Length);
+        int number = 0;
+
+        do
+        {
+            number = Random.Range(0, Points.Length);
+
+        } while (number == lastPoint);
+
+
 
         Vector3 randomDirection = Points[number].transform.position;
-
+        lastPoint = number;
         NavMeshHit hit;
 
         if (NavMesh.SamplePosition(randomDirection, out hit, 20, NavMesh.AllAreas))
