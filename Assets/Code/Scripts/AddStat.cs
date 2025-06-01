@@ -13,7 +13,7 @@ public class AddStat : MonoBehaviour
     [SerializeField] SceneLoader[] scenes;
     [SerializeField] float[] sceneLimits;
     [SerializeField] float endDelay = 1;
-
+    private float _value;
     
     
     void Start()
@@ -39,13 +39,13 @@ public class AddStat : MonoBehaviour
         switch (stat)
         {
             case "Felicidad":
-                felicidad += value; break;
+                felicidad += value; _value = felicidad; break;
             case "Alimento":
-                alimento += value; break;
+                alimento += value; _value = alimento; break;
             case "Limpieza":
-                limpieza += value; break;
+                limpieza += value; _value = limpieza; break;
             case "Salud":
-                    salud += value; break;
+                    salud += value; _value = salud; break;
             default: Debug.Log("Error, stat no existe"); break;
         }
         valueAdded += value;
@@ -65,7 +65,7 @@ public class AddStat : MonoBehaviour
         PlayerPrefs.SetFloat("Limpieza", limpieza);
         PlayerPrefs.SetFloat("Salud", salud);
 
-        if(felicidad >= startValue + maxValueAdded)
+        if(_value >= startValue + maxValueAdded)
         {
             for (int i = 3; i >= 0; i--)
             {
