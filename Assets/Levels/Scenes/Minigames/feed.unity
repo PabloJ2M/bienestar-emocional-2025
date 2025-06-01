@@ -328,7 +328,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 4
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 457210640}
   - component: {fileID: 457210639}
   - component: {fileID: 457210638}
+  - component: {fileID: 457210642}
   m_Layer: 0
   m_Name: Stat Manager
   m_TagString: Untagged
@@ -597,11 +598,13 @@ MonoBehaviour:
   - {fileID: 457210640}
   - {fileID: 457210639}
   - {fileID: 457210638}
+  - {fileID: 457210642}
   sceneLimits:
   - 20
   - 40
   - 60
   - 80
+  - 100
   endDelay: 1
 --- !u!4 &457210637
 Transform:
@@ -670,6 +673,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scenePath: Assets/Levels/Scenes/Room 1.unity
+--- !u!114 &457210642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457210635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af57dfae62910d4892664f149836443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenePath: Assets/Levels/Scenes/End.unity
 --- !u!1 &554141259
 GameObject:
   m_ObjectHideFlags: 0
