@@ -24,7 +24,7 @@ namespace UnityEngine.InputSystem
         protected override void OnSelect() { base.OnSelect(); _group.DragItem(this); ForceInput(); }
         protected override void OnDeselect() { base.OnDeselect(); _group.DropItem(); }
 
-        protected override void OnUpdateSelection(float2 input) => _transform.position = _group.Screen.WorldPos(input);
+        protected override void OnUpdateSelection(float2 input) => _transform.localPosition = _group.Screen.RectPos(input);
         private async void ForceInput() { await Task.Yield(); ForceUpdate(); }
         public void CompleteTask() => _onSuccess.Invoke();
 
