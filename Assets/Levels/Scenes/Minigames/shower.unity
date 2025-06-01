@@ -460,6 +460,119 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &709910129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 709910136}
+  - component: {fileID: 709910135}
+  - component: {fileID: 709910134}
+  - component: {fileID: 709910133}
+  - component: {fileID: 709910132}
+  - component: {fileID: 709910131}
+  m_Layer: 0
+  m_Name: Stat Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &709910131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709910129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af57dfae62910d4892664f149836443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenePath: Assets/Levels/Scenes/Room 4.unity
+--- !u!114 &709910132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709910129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af57dfae62910d4892664f149836443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenePath: Assets/Levels/Scenes/Room 3.unity
+--- !u!114 &709910133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709910129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af57dfae62910d4892664f149836443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenePath: Assets/Levels/Scenes/Room 2.unity
+--- !u!114 &709910134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709910129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af57dfae62910d4892664f149836443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenePath: Assets/Levels/Scenes/Room 1.unity
+--- !u!114 &709910135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709910129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5613fb0e3a27d1e42a9bdcdb0ba52751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: Limpieza
+  maxValueAdded: 20
+  scenes:
+  - {fileID: 709910134}
+  - {fileID: 709910133}
+  - {fileID: 709910132}
+  - {fileID: 709910131}
+  sceneLimits:
+  - 20
+  - 40
+  - 60
+  - 80
+  endDelay: 2
+--- !u!4 &709910136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709910129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7624725, y: 0.11946444, z: -2.6744666}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1356130870
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +586,7 @@ GameObject:
   - component: {fileID: 1356130873}
   - component: {fileID: 1356130872}
   - component: {fileID: 1356130871}
+  - component: {fileID: 1356130876}
   m_Layer: 5
   m_Name: canvas
   m_TagString: Untagged
@@ -577,6 +691,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1356130876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356130870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20466c6108843764dbab4cbb98eeee73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 1356130875}
+  _fade: {fileID: 1663186036650227792, guid: 12a10f0f37e511247800f2f71cf9775f, type: 3}
+  _backupScene: 0
+  _onSceneChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1807770667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1301,21 @@ MonoBehaviour:
   _screen: {fileID: 1356130871}
   _area: {fileID: 252024736}
   _delayEffect: 0.5
+  _onDropItem:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 709910135}
+        m_TargetAssemblyTypeName: AddStat, Assembly-CSharp
+        m_MethodName: StatChange
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2139470477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,3 +1349,4 @@ SceneRoots:
   - {fileID: 639490523}
   - {fileID: 386953303}
   - {fileID: 1356130875}
+  - {fileID: 709910136}

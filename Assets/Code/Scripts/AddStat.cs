@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,17 +12,21 @@ public class AddStat : MonoBehaviour
     float startValue;
     [SerializeField] SceneLoader[] scenes;
     [SerializeField] float[] sceneLimits;
+    [SerializeField] float endDelay = 1;
 
     
     
     void Start()
     {
-        felicidad = PlayerPrefs.GetFloat("Felicidad", 100);
-        alimento = PlayerPrefs.GetFloat("Alimento", 100);
-        limpieza = PlayerPrefs.GetFloat("Limpieza", 100);
-        salud = PlayerPrefs.GetFloat("Salud", 100);
+#if UNITY_EDITOR
+        PlayerPrefs.DeleteAll();
+#endif
+        felicidad = PlayerPrefs.GetFloat("Felicidad", 20);
+        alimento = PlayerPrefs.GetFloat("Alimento", 20);
+        limpieza = PlayerPrefs.GetFloat("Limpieza", 20);
+        salud = PlayerPrefs.GetFloat("Salud", 20);
 
-        startValue = PlayerPrefs.GetFloat(stat);
+        startValue = PlayerPrefs.GetFloat(stat, 20);
     }
 
     // Update is called once per frame
@@ -60,16 +65,25 @@ public class AddStat : MonoBehaviour
         PlayerPrefs.SetFloat("Limpieza", limpieza);
         PlayerPrefs.SetFloat("Salud", salud);
 
-        if(felicidad >= startValue)
+        if(felicidad >= startValue + maxValueAdded)
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 3; i >= 0; i--)
             {
                 if (felicidad >= sceneLimits[i] && alimento >= sceneLimits[i] && limpieza >= sceneLimits[i] && salud >= sceneLimits[i])
                 {
-                    scenes[i].SwipeScene();
+
+                    StartCoroutine(Finish(scenes[i]));
                 }
 
             }
         }
+    }
+
+    private IEnumerator Finish(SceneLoader s)
+    {
+        yield return new WaitForSeconds(endDelay);
+
+        s.SwipeScene();
+
     }
 }
