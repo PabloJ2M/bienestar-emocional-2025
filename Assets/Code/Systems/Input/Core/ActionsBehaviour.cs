@@ -39,7 +39,7 @@ namespace UnityEngine.InputSystem
             List<RaycastResult> result = new();
             _system.RaycastAll(data, result);
 
-            return result.RemoveLayers(_transparent);
+            return result.Count > 0 ? result.RemoveLayers(_transparent) : null;
         }
         private List<RaycastResult> ClearResults()
         {
@@ -51,14 +51,20 @@ namespace UnityEngine.InputSystem
             return result;
         }
 
-        public bool IsPointerOverObject(GameObject element)
+        public bool IsPointerOverObject(GameObject element, params GameObject[] ignore)
+        {
+            var results = BaseResults().RemoveObjects(ignore);
+            if (results == null) return false;
+            return results.FirstElement() == element;
+        }
+        public bool IsPointerOverType<T>(out T element, params GameObject[] ignore)
         {
             var results = BaseResults();
-            if (results == null) return false;
-            if (results.Count == 0) return false;
+            element = default;
 
-            var list = results.OrderByDescending(r => r.sortingLayer).ThenByDescending(r => r.sortingOrder).ThenByDescending(r => r.depth);
-            return list.First().gameObject == element;
+            if (results == null) return false;
+            var item = results.FirstElement();
+            return item != null ? item.TryGetComponent(out element) : false;
         }
         protected bool IsPointerOverUI()
         {
@@ -69,8 +75,20 @@ namespace UnityEngine.InputSystem
 
     public static class InteractionExtension
     {
+        public static GameObject FirstElement(this List<RaycastResult> list)
+        {
+            var result = list.OrderByDescending(r => r.sortingLayer).ThenByDescending(r => r.sortingOrder).ThenByDescending(r => r.depth);
+            if (result.Count() == 0) return null;
+            return result.First().gameObject;
+        }
+        public static List<RaycastResult> RemoveObjects(this List<RaycastResult> list, params GameObject[] objects)
+        {
+            if (list == null) return null;
+            return list.Where(r => objects.Contains(r.gameObject)).ToList();
+        }
         public static List<RaycastResult> RemoveLayers(this List<RaycastResult> list, params LayerMask[] layers)
         {
+            if (list == null) return null;
             return list.Where(r => layers.Contains(r.gameObject.layer)).ToList();
         }
     }
