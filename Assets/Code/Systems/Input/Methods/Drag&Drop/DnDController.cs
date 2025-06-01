@@ -26,7 +26,7 @@ namespace UnityEngine.InputSystem
 
         private IEnumerator DropDelay(bool isCompleted)
         {
-            if (isCompleted) { _onDropItem.Invoke(_element); _element.CompleteTask(); yield return _delayTime; }
+            if (isCompleted) { _onDropItem?.Invoke(_element); _element?.CompleteTask(); yield return _delayTime; }
             _element?.ResetSibling(_container);
             _element = null;
         }
