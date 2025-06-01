@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,13 +8,17 @@ public class PetController : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
     float _lastDestinationTime;
+    [SerializeField] GameObject[] Points;
+    [SerializeField] GameObject petSprite;
+
+    [SerializeField] float tiempoQuieto = 2f;
+    bool moving = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private IEnumerator Start()
+    private void Start()
     {
-        yield return new WaitForSeconds(1.5f);
-        RandomMov();
-        //StartCoroutine(Start());
+        Points = GameObject.FindGameObjectsWithTag("Point");
+
     }
 
     void Awake()
@@ -25,17 +31,32 @@ public class PetController : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(agent.velocity.magnitude);
-        if(agent.velocity.magnitude < 0.1)
+        Debug.Log(agent.velocity.x);
+
+        if(agent.velocity.x > 0 )
         {
-            RandomMov();
+            petSprite.transform.localScale = new Vector3(-1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+        }
+        if(agent.velocity.x < 0)
+        {
+            petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
+        }
+
+        if(agent.velocity.magnitude < 0.1 && moving == false)
+        {
+            StartCoroutine(RandomMov());
         }
     }
 
-    void RandomMov()
+    IEnumerator RandomMov()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * 20;
-        randomDirection += transform.position;
+        moving = true;
+        
+        yield return new WaitForSeconds(tiempoQuieto);
+        
+        int number = Random.Range(0,Points.Length);
+
+        Vector3 randomDirection = Points[number].transform.position;
 
         NavMeshHit hit;
 
@@ -46,6 +67,8 @@ public class PetController : MonoBehaviour
         }
 
         float dist = Vector2.Distance(agent.transform.position, hit.position);
+
+        moving = false;
 
     }
 }
