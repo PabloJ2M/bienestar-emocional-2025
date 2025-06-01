@@ -18,7 +18,7 @@ public class PetController : MonoBehaviour
     private void Start()
     {
         Points = GameObject.FindGameObjectsWithTag("Point");
-
+        //StartCoroutine(RandomMov());
     }
 
     void Awake()
@@ -42,10 +42,12 @@ public class PetController : MonoBehaviour
             petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
         }
 
-        if(agent.velocity.magnitude < 0.1 && moving == false)
+        if (agent.remainingDistance < 0.1 && moving == false)
         {
             StartCoroutine(RandomMov());
         }
+
+        Debug.Log(agent.remainingDistance);
     }
 
     IEnumerator RandomMov()
@@ -63,12 +65,15 @@ public class PetController : MonoBehaviour
         if (NavMesh.SamplePosition(randomDirection, out hit, 20, NavMesh.AllAreas))
         {
             agent.SetDestination(hit.position);
+            
 
         }
 
         float dist = Vector2.Distance(agent.transform.position, hit.position);
 
         moving = false;
+
+        //StartCoroutine(RandomMov());
 
     }
 }
