@@ -20,8 +20,6 @@ public class PetController : MonoBehaviour
     float normalHeight;
     int lastPoint;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         mascota = PlayerPrefs.GetString("Mascota", "Gato");
@@ -147,16 +145,13 @@ public class PetController : MonoBehaviour
         moving = false;
 
         //StartCoroutine(RandomMov());
-
     }
 }
 
-[System.Serializable]
-public class Mascota
+[System.Serializable] public class Mascota
 {
     public Sprite sprite;
     public RuntimeAnimatorController animator;
     public string name;
     public float yOffset;
-
 }

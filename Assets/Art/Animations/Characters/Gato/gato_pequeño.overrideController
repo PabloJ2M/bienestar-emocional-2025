@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "gato_peque\xF1o"
+  m_Controller: {fileID: 9100000, guid: 12afb87686a77e34ea88623d903c63da, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 2020ba0c306f6394c911eb12320c9d50, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7e33b9b0f201ebd46a7e883c368a2760, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 58b562ae7260b00409fb16d40488bb5b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff892a3fd848a8544ab1082c32b977fb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 568a8d8bba16a1b4d972b67d22ee833c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 42a48aef0d4d2ba43899f7cfa8931438, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 71689f859214cfc4db234c9bd72ebacc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 327f0a194b2a48249bbccaa235f05cb2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 80d93b6f5e1932c4eb1b94a78db5acce, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1b17e97ba11efe643a38b896b09fe768, type: 2}

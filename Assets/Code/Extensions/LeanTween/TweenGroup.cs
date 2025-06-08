@@ -26,7 +26,7 @@ namespace UnityEngine.Animations
 
         [ContextMenu("Show")] public void EnableTween() => SetTweenStatus(true);
         [ContextMenu("Hide")] public void DisableTween() => SetTweenStatus(false);
-        private void SetTweenStatus(bool value) => StartCoroutine(TweenDelay(value));
+        public void SetTweenStatus(bool value) => StartCoroutine(TweenDelay(value));
 
         private IEnumerator TweenDelay(bool value)
         {

@@ -2,19 +2,9 @@ using UnityEngine;
 
 public class CameraPointer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private Transform _transform, _target;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Camera.main != null)
-        {
-            transform.LookAt(Camera.main.transform);
-        }
-
-    }
+    private void Awake() => _target = Camera.main.transform;
+    private void Start() => _transform = transform;
+    private void Update() => _transform?.LookAt(_target);
 }
