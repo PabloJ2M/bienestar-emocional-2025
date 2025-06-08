@@ -638,8 +638,8 @@ GameObject:
   - component: {fileID: 330585546}
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
-  - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585547}
   m_Layer: 0
   m_Name: main camera
   m_TagString: MainCamera
@@ -694,7 +694,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 33
+    m_Bits: 97
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1480,17 +1480,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3431561941380630839, guid: 12a10f0f37e511247800f2f71cf9775f, type: 3}
   m_PrefabInstance: {fileID: 425647188}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &425647190 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1663186036650227792, guid: 12a10f0f37e511247800f2f71cf9775f, type: 3}
-  m_PrefabInstance: {fileID: 425647188}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39335b5cccb37974598d240d43320665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &436371770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8785590707025248719, guid: e83c26a21d3315546b4ccaf004abccb6, type: 3}
@@ -3128,6 +3117,7 @@ GameObject:
   - component: {fileID: 1069138454}
   - component: {fileID: 1069138453}
   - component: {fileID: 1069138457}
+  - component: {fileID: 1069138461}
   - component: {fileID: 1069138459}
   - component: {fileID: 1069138458}
   m_Layer: 5
@@ -3235,7 +3225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 1069138456}
-  _fade: {fileID: 425647190}
+  _fade: {fileID: 1663186036650227792, guid: 12a10f0f37e511247800f2f71cf9775f, type: 3}
   _backupScene: 0
   _onSceneChange:
     m_PersistentCalls:
@@ -3243,6 +3233,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1069138459}
         m_TargetAssemblyTypeName: UnityEngine.Animations.TweenCore, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1069138461}
+        m_TargetAssemblyTypeName: Negate, Assembly-CSharp
+        m_MethodName: SetValue
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3320,6 +3322,33 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1069138461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069138452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5398c00707f534095476d7cae73f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 608944281}
+        m_TargetAssemblyTypeName: CinemachineCameraFocus, Assembly-CSharp
+        m_MethodName: FocusStatus
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1108933751 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4383578087732653264, guid: e83c26a21d3315546b4ccaf004abccb6, type: 3}
@@ -5114,9 +5143,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834376865}
     m_Modifications:
+    - target: {fileID: 264326174965233413, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2086113734796364656, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_Name
       value: 'option [clean room]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981072283949885581, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
+      propertyPath: _scenePath
+      value: Assets/Levels/Scenes/Minigames/dust.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6222629587514418182, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_AnchorMax.x

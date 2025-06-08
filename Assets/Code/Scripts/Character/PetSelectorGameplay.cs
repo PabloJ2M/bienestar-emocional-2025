@@ -8,8 +8,9 @@ public class PetSelectorGameplay : MonoBehaviour
     private void Start()
     {
         int index = PetSelector.selected;
-        var animation = _list.Pets[index].GetAge();
+        if (index < 0) return;
 
+        var animation = _list.Pets[index].GetAge();
         _animator.runtimeAnimatorController = animation.controller;
     }
 }
