@@ -10,13 +10,15 @@ namespace UnityEngine.Animations
             _to *= _scaleFactor;
         }
 
-        protected override void OnComplete() { base.OnComplete(); _transform.localScale = _to; }
+        public void ScaleOn() => _tweenCore.Play(true);
+        public void ScaleOff() => _tweenCore.Play(false);
+
         protected override void OnPerformePlay(bool value)
         {
             CancelTween();
 
             //create tween animation
-            LTDescr tween = LeanTween.scale(_self, _to, _tweenCore.Time).setEase(_animationCurve);
+            LTDescr tween = LeanTween.scale(_self, value ? _to : _from, _tweenCore.Time).setEase(_animationCurve);
             if (_tweenCore.IgnoreTimeScale) tween.setIgnoreTimeScale(true);
             if (_tweenCore.Delay != 0) tween.setDelay(_tweenCore.Delay);
             if (_tweenCore.IsLoop) tween.setLoopPingPong(-1);

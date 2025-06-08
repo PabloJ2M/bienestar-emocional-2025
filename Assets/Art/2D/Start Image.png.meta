@@ -52,7 +52,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -113,12 +113,12 @@ TextureImporter:
       name: Start Image_0
       rect:
         serializedVersion: 2
-        x: 109
-        y: 3161
-        width: 2977
-        height: 1516
+        x: 130
+        y: 3175
+        width: 2941
+        height: 1482
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -135,12 +135,12 @@ TextureImporter:
       name: Start Image_1
       rect:
         serializedVersion: 2
-        x: 109
-        y: 1747
-        width: 2977
-        height: 1348
+        x: 123
+        y: 1758
+        width: 2951
+        height: 1324
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -157,12 +157,12 @@ TextureImporter:
       name: Start Image_2
       rect:
         serializedVersion: 2
-        x: 107
-        y: 170
-        width: 2979
-        height: 1507
+        x: 135
+        y: 200
+        width: 2939
+        height: 1463
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

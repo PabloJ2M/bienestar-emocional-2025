@@ -12,7 +12,7 @@ namespace UnityEngine.InputSystem
         protected override void SetDirection(float2 direction)
         {
             Vector2 scroll = _inverse ? -direction : direction;
-            _onValueChanged.Invoke(_speed * scroll * Time.deltaTime);
+            _onValueChanged.Invoke(_speed * scroll * Time.fixedDeltaTime);
         }
     }
 }

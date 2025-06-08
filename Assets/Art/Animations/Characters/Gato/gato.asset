@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a0f54e96c90254bbbf6104c85539f9, type: 3}
+  m_Name: gato
+  m_EditorClassIdentifier: 
+  _bannet: {fileID: -1941251942, guid: d0d6ad0b96495ea45abc46b874730c56, type: 3}
+  _young:
+    controller: {fileID: 22100000, guid: bf1507bcf15b52d45b823479a3039c89, type: 2}
+  _normal:
+    controller: {fileID: 22100000, guid: f7c58463e1bea344b8556ab1f1a3f42b, type: 2}
+  _old:
+    controller: {fileID: 22100000, guid: 6d942651103f69d4594ffc1d4828d8db, type: 2}

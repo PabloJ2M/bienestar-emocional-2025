@@ -13,7 +13,7 @@ namespace UnityEngine.Animations
         [SerializeField] private TweenGroup _group;
 
         [SerializeField, Range(0, 1)] private float _time;
-        [SerializeField, Range(0, 1)] private float _delay;
+        [SerializeField, Range(0, 3)] private float _delay;
         [SerializeField] private bool _startDisable, _playOnAwake, _isLoop, _ignoreTimeScale;
 
         public event Action<bool> onPlayStatusChanged;
