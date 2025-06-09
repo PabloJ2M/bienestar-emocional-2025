@@ -327,6 +327,8 @@ GameObject:
   m_Component:
   - component: {fileID: 361498357}
   - component: {fileID: 361498358}
+  - component: {fileID: 361498360}
+  - component: {fileID: 361498359}
   m_Layer: 0
   m_Name: spawner
   m_TagString: Untagged
@@ -365,6 +367,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _screen: {fileID: 944565254}
+  _amount: 3
+  _onCompletedTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 361498359}
+        m_TargetAssemblyTypeName: UnityEngine.SceneManagement.SceneLoader, Assembly-CSharp
+        m_MethodName: RemoveScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 361498360}
+        m_TargetAssemblyTypeName: StatSender, Assembly-CSharp
+        m_MethodName: AddValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &361498359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361498356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af57dfae62910d4892664f149836443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenePath: Assets/Levels/Scenes/Minigames/dust.unity
+--- !u!114 &361498360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361498356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed531954b2e38ea439d6421720ec8b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _types: 4
+  _amount: 15
 --- !u!1 &453360390
 GameObject:
   m_ObjectHideFlags: 0

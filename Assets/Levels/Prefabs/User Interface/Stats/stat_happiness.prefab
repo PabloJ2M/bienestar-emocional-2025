@@ -12,17 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: stat_happiness
       objectReference: {fileID: 0}
+    - target: {fileID: 2571552937783109864, guid: 0d676fe34700ab440b31e6750b6e04cb, type: 3}
+      propertyPath: _type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3127750401925083095, guid: 0d676fe34700ab440b31e6750b6e04cb, type: 3}
       propertyPath: m_Color.b
-      value: 0.9528302
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3127750401925083095, guid: 0d676fe34700ab440b31e6750b6e04cb, type: 3}
       propertyPath: m_Color.g
-      value: 0.78065836
+      value: 0.573251
       objectReference: {fileID: 0}
     - target: {fileID: 3127750401925083095, guid: 0d676fe34700ab440b31e6750b6e04cb, type: 3}
       propertyPath: m_Color.r
-      value: 0.56181026
+      value: 0.41193417
       objectReference: {fileID: 0}
     - target: {fileID: 5109809237005632611, guid: 0d676fe34700ab440b31e6750b6e04cb, type: 3}
       propertyPath: m_Sprite

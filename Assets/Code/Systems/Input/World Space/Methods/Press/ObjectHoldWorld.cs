@@ -7,6 +7,7 @@ namespace UnityEngine.InputSystem
         private bool _isPressed;
         private float _current;
 
+        public bool IsCompleted => _current >= 1f;
         public float Value => _current;
         public float3 Position => transform.position;
 
@@ -18,7 +19,7 @@ namespace UnityEngine.InputSystem
             if (!_isPressed) return;
 
             _current = math.clamp(_current + Time.deltaTime, 0f, 1f);
-            if (_current >= 1f) gameObject.SetActive(false);
+            if (IsCompleted) gameObject.SetActive(false);
         }
     }
 }
