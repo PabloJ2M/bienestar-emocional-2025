@@ -17,6 +17,7 @@ namespace UnityEngine.InputSystem
 
         private void RayDetection(InputAction.CallbackContext ctx)
         {
+            if (_mask.value == 0) return;
             if (!ctx.action.IsPressed()) { onRelease.Invoke(); return; }
 
             Ray ray = _camera.ScreenPointToRay(_inputs.UI.Point.ReadValue<Vector2>());

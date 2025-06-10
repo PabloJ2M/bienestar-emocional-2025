@@ -15,7 +15,13 @@ MonoBehaviour:
   _bannet: {fileID: -1941251942, guid: d0d6ad0b96495ea45abc46b874730c56, type: 3}
   _young:
     controller: {fileID: 22100000, guid: bf1507bcf15b52d45b823479a3039c89, type: 2}
+    interactions:
+    - {fileID: 7400000, guid: 989d91574bf8f2d4786fff55c422d15d, type: 2}
   _normal:
     controller: {fileID: 22100000, guid: f7c58463e1bea344b8556ab1f1a3f42b, type: 2}
+    interactions:
+    - {fileID: 7400000, guid: ccbc341ebc9fbba4b9b0816eb9db8909, type: 2}
   _old:
     controller: {fileID: 22100000, guid: 6d942651103f69d4594ffc1d4828d8db, type: 2}
+    interactions:
+    - {fileID: 7400000, guid: 848603167a5fa794395b201fd8f74618, type: 2}

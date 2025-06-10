@@ -694,7 +694,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 97
+    m_Bits: 105
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 365078996}
   - component: {fileID: 365078997}
   - component: {fileID: 365078998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -962,9 +962,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834376865}
     m_Modifications:
+    - target: {fileID: 264326174965233413, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2086113734796364656, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_Name
       value: 'option [comida]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981072283949885581, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
+      propertyPath: _scenePath
+      value: Assets/Levels/Scenes/Minigames/feed.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6222629587514418182, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1970,11 +1978,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5242441efc0d0754b93e5dad7b063a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onFocus:
+  _onStatusChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 608944282}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: CameraFocusStatus
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &608944282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608944279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56c0b36dfbf16f4c8f18132c7f72bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onCenterPlayer:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1176437952}
-        m_TargetAssemblyTypeName: Unity.AI.NavMeshAutoMovement, Assembly-CSharp
+        m_TargetAssemblyTypeName: UnityEngine.AI.NavMeshAutoMovement, Assembly-CSharp
         m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
@@ -1985,11 +2020,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onUnFocus:
+  _onReleasePlayer:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1176437952}
-        m_TargetAssemblyTypeName: Unity.AI.NavMeshAutoMovement, Assembly-CSharp
+        m_TargetAssemblyTypeName: UnityEngine.AI.NavMeshAutoMovement, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -2000,7 +2035,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onStatusChanged:
+  _focusCamera:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 117821878}
@@ -2027,18 +2062,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &608944282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608944279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56c0b36dfbf16f4c8f18132c7f72bf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &611775717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,9 +2231,9 @@ GameObject:
   - component: {fileID: 725646030}
   - component: {fileID: 725646023}
   - component: {fileID: 725646031}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pet
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2317,8 +2340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73b691629e9c1a4b88c452425efce4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _list: {fileID: 11400000, guid: 7844c4996ff34ef4497ac8b0e6bea8ee, type: 2}
   _animator: {fileID: 762599883}
+  _list: {fileID: 11400000, guid: 7844c4996ff34ef4497ac8b0e6bea8ee, type: 2}
 --- !u!1 &729055706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2719052468848462287, guid: e83c26a21d3315546b4ccaf004abccb6, type: 3}
@@ -2551,8 +2574,9 @@ GameObject:
   - component: {fileID: 762599885}
   - component: {fileID: 762599883}
   - component: {fileID: 762599882}
+  - component: {fileID: 762599886}
   - component: {fileID: 762599884}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2624,7 +2648,7 @@ Animator:
   m_GameObject: {fileID: 762599881}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 6d942651103f69d4594ffc1d4828d8db, type: 2}
+  m_Controller: {fileID: 22100000, guid: f7c58463e1bea344b8556ab1f1a3f42b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2663,6 +2687,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 725646029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &762599886
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762599881}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.5, z: 0.2}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!1 &826586660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,7 +3175,6 @@ GameObject:
   - component: {fileID: 1069138454}
   - component: {fileID: 1069138453}
   - component: {fileID: 1069138457}
-  - component: {fileID: 1069138461}
   - component: {fileID: 1069138459}
   - component: {fileID: 1069138458}
   m_Layer: 5
@@ -3255,18 +3299,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1069138461}
-        m_TargetAssemblyTypeName: Negate, Assembly-CSharp
-        m_MethodName: SetValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1069138458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3335,33 +3367,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1069138461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069138452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a5398c00707f534095476d7cae73f50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onValueChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 608944281}
-        m_TargetAssemblyTypeName: CinemachineCameraFocus, Assembly-CSharp
-        m_MethodName: FocusStatus
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1108933751 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4383578087732653264, guid: e83c26a21d3315546b4ccaf004abccb6, type: 3}
@@ -3656,7 +3661,7 @@ MonoBehaviour:
   _agent: {fileID: 725646025}
   _waitingTime: 3
   _origin: {x: 1.75, y: 0, z: -3.5}
-  _goToCenter: 0
+  _goToCenter: 1
 --- !u!1 &1188568433
 GameObject:
   m_ObjectHideFlags: 0

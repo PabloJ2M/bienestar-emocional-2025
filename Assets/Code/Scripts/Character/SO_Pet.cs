@@ -24,4 +24,5 @@ public class SO_Pet : ScriptableObject
 [Serializable] public struct PetAnimation
 {
     public RuntimeAnimatorController controller;
+    public AnimationClip[] interactions;
 }
