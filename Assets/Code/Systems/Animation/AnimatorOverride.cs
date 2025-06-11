@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AnimatorOverride : MonoBehaviour
 {
@@ -14,9 +16,21 @@ public class AnimatorOverride : MonoBehaviour
     private const string _interactID = "animal_task (interact)";
 
     private void Awake() => _pet = PetSelectorGameplay.Instance;
-    private void Start() { if (_pet) SetWaitAction(); }
     private void OnEnable() { if (_pet) _animation = _pet.Animation.interaction.Find(x => x.GameType == _gameType); }
     private void OnDisable() { if (_pet) _pet.Animator.CrossFade(_defaulAnimation, 1); }
+    
+    private IEnumerator Start()
+    {
+        var agent = FindAnyObjectByType<NavMeshAgent>();
+        if (agent) yield return StartCoroutine(WaitForStopped(agent));
+
+        if (_pet) SetWaitAction();
+    }
+    private IEnumerator WaitForStopped(NavMeshAgent agent)
+    {
+        yield return new WaitForSeconds(1f);
+        yield return new WaitWhile(() => agent.velocity != Vector3.zero);
+    }
 
     public void SetWaitAction(int index = 0)
     {
