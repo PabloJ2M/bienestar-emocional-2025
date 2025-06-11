@@ -11,8 +11,10 @@ public class PetSelectorGameplay : SingletonBasic<PetSelectorGameplay>
     public PetAnimation Animation => _animation;
     public RuntimeAnimatorController Controller { get => _animator.runtimeAnimatorController; set => _animator.runtimeAnimatorController = value; }
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         int index = PetSelector.selected;
         if (index < 0) index = 0;
 

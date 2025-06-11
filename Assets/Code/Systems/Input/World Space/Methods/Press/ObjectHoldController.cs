@@ -6,7 +6,7 @@ namespace UnityEngine.InputSystem
 {
     public class ObjectHoldController : MonoBehaviour
     {
-        [SerializeField] private ScreenRayCaster _screen;
+        [SerializeField] private ScreenRaycaster _screen;
 
         [Header("Win Condition")]
         [SerializeField] private float _amount;

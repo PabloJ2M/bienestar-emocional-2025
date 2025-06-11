@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Unity.Mathematics;
 using UnityEngine.Events;
 
@@ -19,7 +20,7 @@ namespace UnityEngine.InputSystem
             _canvas = GetComponentInParent<Canvas>().transform as RectTransform;
         }
 
-        protected override void OnSelect() { base.OnSelect(); _transform.SetParent(_canvas); ForceUpdate(); }
+        protected async override void OnSelect() { base.OnSelect(); _transform.SetParent(_canvas); await Task.Yield(); ForceUpdate(); }
         protected override void OnUpdateSelection(float2 screenPosition) => _transform.position = (Vector2)screenPosition;
 
         protected override void OnDeselect()

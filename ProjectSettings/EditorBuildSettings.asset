@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Levels/Scenes/Minigames/feed.unity
     guid: d238da2e825fea147a3dfe58d556f13c
   - enabled: 1
-    path: Assets/Levels/Scenes/Minigames/shower.unity
+    path: Assets/Levels/Scenes/External Games/shower.unity
     guid: acd609033e7d5444b8634a945e917e6b
   - enabled: 1
     path: Assets/Levels/Scenes/Minigames/flea.unity

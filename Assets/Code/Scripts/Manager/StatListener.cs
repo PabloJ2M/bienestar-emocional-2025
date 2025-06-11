@@ -15,7 +15,7 @@ public class StatListener : MonoBehaviour
     private void OnEnable() => GameController.Instance.onValueChanged += PerformeStatus;
     private void OnDisable() => GameController.Instance.onValueChanged -= PerformeStatus;
 
-    private void Update() => _fill.fillAmount = math.lerp(_fill.fillAmount, _target, Time.deltaTime);
+    private void Update() { if (_fill != null) _fill.fillAmount = math.lerp(_fill.fillAmount, _target, Time.deltaTime); }
 
     private void PerformeStatus(StatType type, float amount)
     {

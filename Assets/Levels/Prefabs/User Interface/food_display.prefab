@@ -159,7 +159,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8806299025090480359}
         m_TargetAssemblyTypeName: Events.Interact.Delay, Assembly-CSharp
-        m_MethodName: PlatDefault
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5b3dc6c87559545a4f8391c23ed790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnAwake: 0
   _defaultTime: 1
+  _playOnAwake: 0
   _onStart:
     m_PersistentCalls:
       m_Calls:

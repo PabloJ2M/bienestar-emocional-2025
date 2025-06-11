@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "pet", menuName = "pets/pet type", order = 1)]
@@ -24,5 +25,5 @@ public class SO_Pet : ScriptableObject
 [Serializable] public struct PetAnimation
 {
     public RuntimeAnimatorController controller;
-    public AnimationClip[] interactions;
+    public List<SO_PetAnimation> interaction;
 }

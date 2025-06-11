@@ -15,13 +15,22 @@ MonoBehaviour:
   _bannet: {fileID: -1941251942, guid: d0d6ad0b96495ea45abc46b874730c56, type: 3}
   _young:
     controller: {fileID: 22100000, guid: bf1507bcf15b52d45b823479a3039c89, type: 2}
+    interaction:
+    - {fileID: 11400000, guid: d70c8a3e8ca0b8640a753723674e902f, type: 2}
+    - {fileID: 11400000, guid: 1636d8b6fbdefda4bab0cc932076540a, type: 2}
     interactions:
     - {fileID: 7400000, guid: 989d91574bf8f2d4786fff55c422d15d, type: 2}
   _normal:
     controller: {fileID: 22100000, guid: f7c58463e1bea344b8556ab1f1a3f42b, type: 2}
+    interaction:
+    - {fileID: 11400000, guid: f4397339f9b95cb4f9fc6f50295a6ab7, type: 2}
+    - {fileID: 11400000, guid: 094cd78820763f840adc7e536ff93626, type: 2}
     interactions:
     - {fileID: 7400000, guid: ccbc341ebc9fbba4b9b0816eb9db8909, type: 2}
   _old:
     controller: {fileID: 22100000, guid: 6d942651103f69d4594ffc1d4828d8db, type: 2}
+    interaction:
+    - {fileID: 11400000, guid: bcf72e024947cbc4d99b9666e1612f27, type: 2}
+    - {fileID: 11400000, guid: f57f5a18e8e842649a6176e471cef89f, type: 2}
     interactions:
     - {fileID: 7400000, guid: 848603167a5fa794395b201fd8f74618, type: 2}

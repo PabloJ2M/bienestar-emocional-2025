@@ -3,7 +3,7 @@ using Unity.Mathematics;
 
 namespace UnityEngine.InputSystem
 {
-    public class ScreenRayCaster : ActionsBehaviour
+    public class ScreenRaycaster : ActionsBehaviour
     {
         [SerializeField] private LayerMask _mask;
         private Camera _camera;
@@ -18,7 +18,7 @@ namespace UnityEngine.InputSystem
         private void RayDetection(InputAction.CallbackContext ctx)
         {
             if (_mask.value == 0) return;
-            if (!ctx.action.IsPressed()) { onRelease.Invoke(); return; }
+            if (!ctx.action.IsPressed()) { onRelease?.Invoke(); return; }
 
             Ray ray = _camera.ScreenPointToRay(_inputs.UI.Point.ReadValue<Vector2>());
             Physics.Raycast(ray, out RaycastHit hit, math.INFINITY, _mask);

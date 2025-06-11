@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c3171ab4a89a84daa73cfd568b52ee, type: 3}
+  m_Name: 'gato_grande [shower]'
+  m_EditorClassIdentifier: 
+  _gameType: 1
+  _waits:
+  - {fileID: 7400000, guid: ccd8097cee44a1247b81afa04e93fc2a, type: 2}
+  - {fileID: 7400000, guid: afd06d383aaede54d82fa86c553f8e40, type: 2}
+  _actions:
+  - {fileID: 7400000, guid: 47cf59ca2a0fe5544930c4023bbffe85, type: 2}

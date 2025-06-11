@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'option [ducha]'
       objectReference: {fileID: 0}
+    - target: {fileID: 3981072283949885581, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
+      propertyPath: _scenePath
+      value: Assets/Levels/Scenes/Minigames/shower.unity
+      objectReference: {fileID: 0}
     - target: {fileID: 6222629587514418182, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3283,7 +3287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 1069138456}
   _fade: {fileID: 1663186036650227792, guid: 12a10f0f37e511247800f2f71cf9775f, type: 3}
-  _backupScene: 0
+  _backupScene: 1
   _onSceneChange:
     m_PersistentCalls:
       m_Calls:
