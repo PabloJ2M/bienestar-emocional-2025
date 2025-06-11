@@ -4436,9 +4436,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834376865}
     m_Modifications:
+    - target: {fileID: 264326174965233413, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2086113734796364656, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_Name
       value: 'option [pulgas]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981072283949885581, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
+      propertyPath: _scenePath
+      value: Assets/Levels/Scenes/Minigames/flea.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6222629587514418182, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_AnchorMax.x

@@ -8,9 +8,9 @@ namespace UnityEngine.Animations
         [SerializeField] private UnityEvent<Sprite> _onIconChanged;
 
         protected override void Start() { base.Start(); _onIconChanged.Invoke(_normal); }
-        protected override void OnUpdate(float value)
-        {
-            _onIconChanged.Invoke(value > 0.5f ? _changed : _normal);
-        }
+        protected override void OnUpdate(float value) => _onIconChanged.Invoke(value > 0.5f ? _changed : _normal);
+
+        public void RotateIn() => _tweenCore.Play(true);
+        public void RotateOut() => _tweenCore.Play(false);
     }
 }
