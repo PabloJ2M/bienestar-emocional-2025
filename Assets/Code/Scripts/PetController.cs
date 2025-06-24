@@ -53,35 +53,14 @@ public class PetController : MonoBehaviour
     void Update()
     {
 
-        //Debug.Log(agent.velocity.x);
 
-        //if(agent.velocity.x > 0 )
-        //{
-        //    petSprite.transform.localScale = new Vector3(-1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
-        //}
-        //if(agent.velocity.x < 0)
-        //{
-        //    petSprite.transform.localScale = new Vector3(1, petSprite.transform.localScale.y, petSprite.transform.localScale.z);
-        //}
 
         if (agent.remainingDistance < 0.15 && moving == false)
         {
             StartCoroutine(RandomMov());
         }
 
-        //Debug.Log(agent.velocity.y);
 
-        //if(transform.position.y > normalHeight + 0.2 && jumping == false)
-        //{
-        //    anim.SetTrigger("Jump");
-        //    jumping = true;
-        //}
-
-        //if( agent.velocity.y > 0 && jumping == false)
-        //{
-        //    anim.SetTrigger("Jump");
-        //    jumping = true;
-        //}
     }
     public void JumpAnimation()
     {
@@ -144,7 +123,6 @@ public class PetController : MonoBehaviour
 
         moving = false;
 
-        //StartCoroutine(RandomMov());
     }
 }
 
