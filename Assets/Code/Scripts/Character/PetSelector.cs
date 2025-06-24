@@ -7,6 +7,8 @@ public class PetSelector : MonoBehaviour
 {
     [SerializeField] private SO_PetList _list;
     [SerializeField] private PetSelectorButton _prefab;
+
+    [SerializeField] private bool _debug = true;
     [SerializeField] private UnityEvent _onSkipSelection;
 
     private ScrollRect _scroll;
@@ -20,6 +22,7 @@ public class PetSelector : MonoBehaviour
 
     private void Start()
     {
+        if (_debug && Application.isEditor) { selected = -1; PlayerPrefs.DeleteKey(_petID); }
         if (selected >= 0) _onSkipSelection.Invoke();
 
         foreach (var pet in _list.Pets)

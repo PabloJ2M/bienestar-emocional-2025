@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3981072283949885581, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: _scenePath
-      value: Assets/Levels/Scenes/Minigames/shower.unity
+      value: Assets/Levels/Scenes/External Games/shower.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6222629587514418182, guid: 2d1d8901a81e05447ac71158ed7165e8, type: 3}
       propertyPath: m_AnchorMax.x

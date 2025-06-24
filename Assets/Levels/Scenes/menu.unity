@@ -861,8 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5b3dc6c87559545a4f8391c23ed790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnAwake: 1
   _defaultTime: 5
+  _playOnAwake: 1
   _onStart:
     m_PersistentCalls:
       m_Calls: []
