@@ -12,6 +12,7 @@ public class ObjectivesController : MonoBehaviour
     [Header("Eventos")]
     [SerializeField] private UnityEvent alCompletarNivel;  // Evento general
     [SerializeField] private UnityEvent alCompletarJuego;
+    [SerializeField] GameObject[] rooms;
 
     private int[] progresos;
     private int nivelActual = 0;
@@ -43,11 +44,19 @@ public class ObjectivesController : MonoBehaviour
 
     private void ConfigurarNivel()
     {
+
         if (nivelActual >= niveles.Length)
         {
             SceneManager.LoadScene(endScene);
             return;
         }
+
+        for (int i = 0; i < rooms.Length; i++)
+        {
+            rooms[i].SetActive(i == nivelActual);
+        }
+
+
 
         NivelObjetivo nivel = niveles[nivelActual];
         progresos = new int[nivel.objetivos.Length];
@@ -57,7 +66,7 @@ public class ObjectivesController : MonoBehaviour
             string key = $"Obj_{nivelActual}_{nivel.objetivos[i].nombre}";
             progresos[i] = PlayerPrefs.GetInt(key, 0);
         }
-
+        VerificarCompleto();
         ActualizarTextos();
     }
 
@@ -87,8 +96,6 @@ public class ObjectivesController : MonoBehaviour
 
         alCompletarNivel?.Invoke(); 
 
-        nivel.eventoAlCompletar?.Invoke();  
-
         nivelActual++;
         PlayerPrefs.SetInt("NivelActual", nivelActual);
         PlayerPrefs.Save();
@@ -106,7 +113,7 @@ public class ObjectivesController : MonoBehaviour
 
     public void ForzarActualizarTextos()
     {
-        ActualizarTextos();
+        ConfigurarNivel();
     }
 
     public void ResetProgresoTotal()
@@ -140,6 +147,5 @@ public class ObjetivoIndividual
 public class NivelObjetivo
 {
     public ObjetivoIndividual[] objetivos;
-    public UnityEvent eventoAlCompletar;
 }
 

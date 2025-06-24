@@ -21,7 +21,7 @@ public class StatSender : MonoBehaviour
             IncrementarObjetivo("Limpiar", nivelActual);
 
         if (_types.HasFlag(StatType.Felicidad))
-            IncrementarObjetivo("Jugar", nivelActual);
+            IncrementarObjetivo("Felicidad", nivelActual);
 
         if (_types.HasFlag(StatType.Salud))
             IncrementarObjetivo("Salud", nivelActual);
