@@ -1,51 +1,93 @@
 using System.Collections;
+using UnityEngine;
+using UnityEngine.AI;
 
-namespace UnityEngine.AI
+public class NavMeshAutoMovement : MonoBehaviour
 {
-    public class NavMeshAutoMovement : MonoBehaviour
+    [Header("NavMesh Settings")]
+    [SerializeField] private NavMeshAgent _agent;
+    [SerializeField, Range(0, 10)] private float _waitingTime = 2f;
+
+    [Header("World Center")]
+    [SerializeField] private Vector3 _origin;
+    [SerializeField] private bool _goToCenter;
+
+    [Header("Random Movement Points")]
+    [SerializeField] private GameObject[] _points;
+
+    private WaitForSeconds _waitDelay;
+    private WaitUntil _reachTarget;
+    private int _lastPointIndex = -1;
+
+    private void Awake()
     {
-        [SerializeField] private NavMeshAgent _agent;
-        [SerializeField, Range(0, 10)] private float _waitingTime = 1f;
-        
-        [Header("World Center")]
-        [SerializeField] private Vector3 _origin;
-        [SerializeField] private bool _goToCenter;
+        _waitDelay = new WaitForSeconds(_waitingTime);
+        _reachTarget = new(() => !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance);
+        _points = GameObject.FindGameObjectsWithTag("Point");
+    }
 
-        private WaitForSeconds _waitDelay;
-        private WaitUntil _reachTarget;
-        private NavMeshArea[] _points;
+    private void OnEnable()
+    {
+        _agent.updateUpAxis = _agent.updateRotation = false;
+        StartCoroutine(AutoMoveRoutine());
+    }
 
-        private void Awake()
-        {
-            _waitDelay = new(_waitingTime);
-            _points = GetComponentsInChildren<NavMeshArea>();
-        }
-        private void OnEnable()
-        {
-            _agent.updateUpAxis = _agent.updateRotation = false;
-            _reachTarget = new(() => !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance);
-        }
-
-        private void MoveToRandomPoint() => _agent?.SetDestination(_points[Random.Range(0, _points.Length)].Position);
-        private void OnDrawGizmosSelected() => Gizmos.DrawSphere(_origin, 0.1f);
-
-        private IEnumerator Start()
+    private IEnumerator AutoMoveRoutine()
+    {
+        while (true)
         {
             yield return _reachTarget;
             yield return _waitDelay;
+
             MoveToRandomPoint();
-            StartCoroutine(Start());
         }
-        public void Stop()
+    }
+
+    private void MoveToRandomPoint()
+    {
+
+        int index;
+        do
         {
-            if (!_goToCenter) return;
-            StopAllCoroutines();
-            _agent?.SetDestination(_origin);
-        }
-        public void Play()
+            index = Random.Range(0, _points.Length);
+        } while (index == _lastPointIndex && _points.Length > 1);
+
+        _lastPointIndex = index;
+
+        Vector3 targetPos = _points[index].transform.position;
+
+        if (NavMesh.SamplePosition(targetPos, out NavMeshHit hit, 20f, NavMesh.AllAreas))
         {
-            if (!_goToCenter) return;
-            StartCoroutine(Start());
+            _agent.SetDestination(hit.position);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(_origin, 0.1f);
+
+        if (_points != null)
+        {
+            Gizmos.color = Color.green;
+            foreach (var point in _points)
+            {
+                if (point != null)
+                    Gizmos.DrawSphere(point.transform.position, 0.15f);
+            }
+        }
+    }
+
+    public void Stop()
+    {
+        if (!_goToCenter) return;
+        StopAllCoroutines();
+        _agent.SetDestination(_origin);
+    }
+
+    public void Play()
+    {
+        if (!_goToCenter) return;
+        StartCoroutine(AutoMoveRoutine());
     }
 }
