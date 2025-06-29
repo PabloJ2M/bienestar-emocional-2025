@@ -22,7 +22,7 @@ public class PetSelector : MonoBehaviour
 
     private void Start()
     {
-        if (_debug && Application.isEditor) { selected = -1; PlayerPrefs.DeleteKey(_petID); }
+        if (_debug && Application.isEditor) { selected = -1; PlayerPrefs.DeleteAll(); }
         if (selected >= 0) _onSkipSelection.Invoke();
 
         foreach (var pet in _list.Pets)

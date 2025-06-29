@@ -1827,6 +1827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _list: {fileID: 11400000, guid: 7844c4996ff34ef4497ac8b0e6bea8ee, type: 2}
   _prefab: {fileID: 6367524972783644638, guid: 920357cdc27c61047854979d55c63e0f, type: 3}
+  _debug: 1
   _onSkipSelection:
     m_PersistentCalls:
       m_Calls:
