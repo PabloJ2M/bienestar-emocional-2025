@@ -13,7 +13,7 @@ public class NavMeshAutoMovement : MonoBehaviour
     [SerializeField] private bool _goToCenter;
 
     [Header("Random Movement Points")]
-    [SerializeField] private GameObject[] _points;
+    [SerializeField] private NavMeshPoint[] _points;
 
     private WaitForSeconds _waitDelay;
     private WaitUntil _reachTarget;
@@ -22,15 +22,11 @@ public class NavMeshAutoMovement : MonoBehaviour
     private void Awake()
     {
         _waitDelay = new WaitForSeconds(_waitingTime);
+        _agent.updateUpAxis = _agent.updateRotation = false;
         _reachTarget = new(() => !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance);
-        _points = GameObject.FindGameObjectsWithTag("Point");
     }
 
-    private void OnEnable()
-    {
-        _agent.updateUpAxis = _agent.updateRotation = false;
-        StartCoroutine(AutoMoveRoutine());
-    }
+    private void Start() => StartCoroutine(AutoMoveRoutine());
 
     private IEnumerator AutoMoveRoutine()
     {
@@ -45,37 +41,24 @@ public class NavMeshAutoMovement : MonoBehaviour
 
     private void MoveToRandomPoint()
     {
-
         int index;
-        do
-        {
+
+        do {
             index = Random.Range(0, _points.Length);
         } while (index == _lastPointIndex && _points.Length > 1);
 
         _lastPointIndex = index;
 
-        Vector3 targetPos = _points[index].transform.position;
+        Vector3 targetPos = _points[index].Position;
 
         if (NavMesh.SamplePosition(targetPos, out NavMeshHit hit, 20f, NavMesh.AllAreas))
-        {
             _agent.SetDestination(hit.position);
-        }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(_origin, 0.1f);
-
-        if (_points != null)
-        {
-            Gizmos.color = Color.green;
-            foreach (var point in _points)
-            {
-                if (point != null)
-                    Gizmos.DrawSphere(point.transform.position, 0.15f);
-            }
-        }
     }
 
     public void Stop()

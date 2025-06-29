@@ -1,7 +1,8 @@
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ObjectivesController : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class ObjectivesController : MonoBehaviour
     [SerializeField] private string endScene = "endScene";
 
     [Header("Eventos")]
-    [SerializeField] private UnityEvent alCompletarNivel;  // Evento general
+    [SerializeField] private GameObject[] rooms;
+    [SerializeField] private UnityEvent<float> onProgressUpdated;
     [SerializeField] private UnityEvent alCompletarJuego;
-    [SerializeField] GameObject[] rooms;
 
     private int[] progresos;
     private int nivelActual = 0;
@@ -44,19 +45,12 @@ public class ObjectivesController : MonoBehaviour
 
     private void ConfigurarNivel()
     {
-
-        if (nivelActual >= niveles.Length)
-        {
-            SceneManager.LoadScene(endScene);
-            return;
-        }
+        onProgressUpdated.Invoke((float)nivelActual / niveles.Length);
 
         for (int i = 0; i < rooms.Length; i++)
         {
             rooms[i].SetActive(i == nivelActual);
         }
-
-
 
         NivelObjetivo nivel = niveles[nivelActual];
         progresos = new int[nivel.objetivos.Length];
@@ -66,6 +60,7 @@ public class ObjectivesController : MonoBehaviour
             string key = $"Obj_{nivelActual}_{nivel.objetivos[i].nombre}";
             progresos[i] = PlayerPrefs.GetInt(key, 0);
         }
+
         VerificarCompleto();
         ActualizarTextos();
     }
@@ -94,15 +89,15 @@ public class ObjectivesController : MonoBehaviour
                 return;
         }
 
-        alCompletarNivel?.Invoke(); 
-
         nivelActual++;
         PlayerPrefs.SetInt("NivelActual", nivelActual);
         PlayerPrefs.Save();
 
         if (nivelActual >= niveles.Length)
         {
-            alCompletarJuego?.Invoke();
+            alCompletarJuego.Invoke();
+
+            PlayerPrefs.DeleteAll();
             SceneManager.LoadScene(endScene);
         }
         else
@@ -111,10 +106,7 @@ public class ObjectivesController : MonoBehaviour
         }
     }
 
-    public void ForzarActualizarTextos()
-    {
-        ConfigurarNivel();
-    }
+    public void ForzarActualizarTextos() => ConfigurarNivel();
 
     public void ResetProgresoTotal()
     {
@@ -131,21 +123,18 @@ public class ObjectivesController : MonoBehaviour
 
         PlayerPrefs.Save();
         nivelActual = 0;
+
         ConfigurarNivel();
     }
 }
 
-
-[System.Serializable]
-public class ObjetivoIndividual
+[Serializable] public class ObjetivoIndividual
 {
     public string nombre; 
     public TextMeshProUGUI textoUI; 
     public int meta;     
 }
-[System.Serializable]
-public class NivelObjetivo
+[Serializable] public class NivelObjetivo
 {
     public ObjetivoIndividual[] objetivos;
 }
-

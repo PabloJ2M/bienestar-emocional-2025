@@ -14,10 +14,11 @@ public class SO_Pet : ScriptableObject
     private const string _ageID = "Age";
 
     public Sprite Banner => _bannet;
-    public PetAnimation GetAge() => PlayerPrefs.GetInt(_ageID) switch
+    public void SetAge(float value) => PlayerPrefs.SetFloat(_ageID, value);
+    public PetAnimation GetAge() => PlayerPrefs.GetFloat(_ageID) switch
     {
-        (> 20) => _old,
-        (> 10) => _normal,
+        (> 0.7f) => _old,
+        (> 0.3f) => _normal,
         _ => _young
     };
 }

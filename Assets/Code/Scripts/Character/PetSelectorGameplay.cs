@@ -6,6 +6,7 @@ public class PetSelectorGameplay : SingletonBasic<PetSelectorGameplay>
     [SerializeField] private SO_PetList _list;
 
     private PetAnimation _animation;
+    private int _petIndex;
 
     public Animator Animator => _animator;
     public PetAnimation Animation => _animation;
@@ -15,10 +16,15 @@ public class PetSelectorGameplay : SingletonBasic<PetSelectorGameplay>
     {
         base.Awake();
 
-        int index = PetSelector.selected;
-        if (index < 0) index = 0;
+        _petIndex = PetSelector.selected;
+        if (_petIndex < 0) _petIndex = 0;
 
-        _animation = _list.Pets[index].GetAge();
+        _animation = _list.Pets[_petIndex].GetAge();
         _animator.runtimeAnimatorController = _animation.controller;
+    }
+
+    public void SetPetAge(float value)
+    {
+        _list.Pets[_petIndex].SetAge(value);
     }
 }
