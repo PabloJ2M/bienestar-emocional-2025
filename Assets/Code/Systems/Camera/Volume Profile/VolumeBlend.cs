@@ -1,5 +1,3 @@
-using UnityEngine.Rendering.Universal;
-
 namespace UnityEngine.Rendering
 {
     [RequireComponent(typeof(Volume))]
@@ -13,6 +11,7 @@ namespace UnityEngine.Rendering
         [SerializeField] private ColorAdjustmentsBlend _colorAdjustments;
 
         private Volume _globalVolume;
+        private float _current;
 
         private void Awake()
         {
@@ -23,10 +22,12 @@ namespace UnityEngine.Rendering
             _vignette.SetUp(_globalVolume);
             _colorAdjustments.SetUp(_globalVolume);
         }
-        private void Start() => UpdateBlend();
-        private void OnValidate() => UpdateBlend();
 
-        public void SetValue(float value) { _weigth = value; UpdateBlend(); }
+        private void Start() => UpdateBlend();
+        private void Update() { if (_weigth != _current) { _weigth = Mathf.MoveTowards(_weigth, _current, Time.deltaTime); UpdateBlend(); } }
+        private void OnValidate() { SetValue(_weigth); UpdateBlend(); }
+
+        public void SetValue(float value) => _current = value;
         private void UpdateBlend()
         {
             if (!Application.isPlaying || !_globalVolume) return;

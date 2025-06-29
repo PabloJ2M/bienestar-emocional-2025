@@ -25,6 +25,7 @@ public class PetSelectorGameplay : SingletonBasic<PetSelectorGameplay>
 
     public void SetPetAge(float value)
     {
-        _list.Pets[_petIndex].SetAge(value);
+        _animation = _list.Pets[_petIndex].SetAge(value);
+        _animator.runtimeAnimatorController = _animation.controller;
     }
 }
