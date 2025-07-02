@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: perro
   m_EditorClassIdentifier: 
   _bannet: {fileID: 1595728104, guid: 788321ccb481917408a96f4ab6bf5379, type: 3}
+  _isLocked: 1
   _young:
     controller: {fileID: 22100000, guid: 0b63d67e600484c49850e507fba4a270, type: 2}
+    interaction: []
   _normal:
     controller: {fileID: 22100000, guid: 0b63d67e600484c49850e507fba4a270, type: 2}
+    interaction: []
   _old:
     controller: {fileID: 22100000, guid: 0b63d67e600484c49850e507fba4a270, type: 2}
+    interaction: []

@@ -6,6 +6,7 @@ using UnityEngine;
 public class SO_Pet : ScriptableObject
 {
     [SerializeField] private Sprite _bannet;
+    [SerializeField] private bool _isLocked;
 
     [SerializeField] private PetAnimation _young;
     [SerializeField] private PetAnimation _normal;
@@ -14,6 +15,7 @@ public class SO_Pet : ScriptableObject
     private const string _ageID = "Age";
 
     public Sprite Banner => _bannet;
+    public bool IsLocked => _isLocked;
 
     public PetAnimation SetAge(float value)
     {
