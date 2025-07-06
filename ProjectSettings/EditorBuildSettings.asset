@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Levels/Scenes/gameplay.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Levels/Scenes/credits.unity
+    guid: 226d7616e89ff634a90db11e44764340
+  - enabled: 1
     path: Assets/Levels/Scenes/Minigames/feed.unity
     guid: d238da2e825fea147a3dfe58d556f13c
-  - enabled: 1
-    path: Assets/Levels/Scenes/External Games/shower.unity
-    guid: acd609033e7d5444b8634a945e917e6b
   - enabled: 1
     path: Assets/Levels/Scenes/Minigames/flea.unity
     guid: 0fe5d78a0d9e37b40a380c7aa5f06619
@@ -24,11 +24,8 @@ EditorBuildSettings:
     path: Assets/Levels/Scenes/Minigames/dust.unity
     guid: 84ab0f17169a9c549b9a0bcd0db2bb16
   - enabled: 1
-    path: Assets/Levels/Scenes/Minigames/hearts.unity
-    guid: 28349af2496bf12438a997d0c730cd37
-  - enabled: 1
-    path: Assets/Levels/Scenes/credits.unity
-    guid: 226d7616e89ff634a90db11e44764340
+    path: Assets/Levels/Scenes/External Games/shower.unity
+    guid: acd609033e7d5444b8634a945e917e6b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
