@@ -24,8 +24,8 @@ public class SO_Pet : ScriptableObject
     }
     public PetAnimation GetAge() => PlayerPrefs.GetFloat(_ageID) switch
     {
-        (> 0.7f) => _old,
-        (> 0.3f) => _normal,
+        //(> 0.7f) => _old,
+        //(> 0.3f) => _normal,
         _ => _young
     };
 }
