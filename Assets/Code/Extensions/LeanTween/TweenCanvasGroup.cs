@@ -10,7 +10,7 @@ namespace UnityEngine.Animations
         protected override void Awake() { base.Awake(); _canvasGroup = GetComponent<CanvasGroup>(); }
         private void Start()
         {
-            _alpha = _canvasGroup.alpha = _tweenCore.IsEnabled ? 1f : 0f;
+            _alpha = _canvasGroup.alpha = _tweenCore.IsEnabled ? Curve(1f) : Curve(0f);
 
             if (!_tweenCore.IsEnabled && _modifyInteraction)
                 _canvasGroup.interactable = _canvasGroup.blocksRaycasts = false;
@@ -21,7 +21,7 @@ namespace UnityEngine.Animations
         {
             base.OnComplete();
             
-            _canvasGroup.alpha = _alpha;
+            _canvasGroup.alpha = Curve(_alpha);
             if (_modifyInteraction) _canvasGroup.interactable = _canvasGroup.blocksRaycasts = _tweenCore.IsEnabled;
         }
     }
