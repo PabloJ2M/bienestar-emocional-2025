@@ -8,7 +8,7 @@ namespace UnityEngine.InputSystem
         [SerializeField] private ObjectHoldController _controller;
         [SerializeField] private TweenCore _fade;
 
-        [SerializeField] private RectTransform _loading;
+        //[SerializeField] private RectTransform _loading;
         [SerializeField] private Image _loadingBar;
         private ObjectHoldWorld _selected;
 
@@ -23,7 +23,7 @@ namespace UnityEngine.InputSystem
         {
             if (_selected == null) return;
             _loadingBar.fillAmount = _selected.Value;
-            _loading.position = _controller.GetPosition(_selected.Position);
+            //_loading.position = _controller.GetPosition(_selected.Position);
         }
     }
 }

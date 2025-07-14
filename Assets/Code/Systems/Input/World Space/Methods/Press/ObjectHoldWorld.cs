@@ -4,6 +4,7 @@ namespace UnityEngine.InputSystem
 {
     public class ObjectHoldWorld : MonoBehaviour
     {
+        [SerializeField] private ParticleSystem _particles;
         private bool _isPressed;
         private float _current;
 
@@ -19,7 +20,11 @@ namespace UnityEngine.InputSystem
             if (!_isPressed) return;
 
             _current = math.clamp(_current + Time.deltaTime, 0f, 1f);
-            if (IsCompleted) gameObject.SetActive(false);
+            
+            if (!IsCompleted) return;
+
+            Instantiate(_particles, transform.position, default);
+            gameObject.SetActive(false);
         }
     }
 }
